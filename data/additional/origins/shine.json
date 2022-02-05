@@ -1,0 +1,23 @@
+{
+	"powers": [
+		"additional:raycastlightning",
+		"additional:head_attach",
+		"additional:power",
+		"additional:max_head_replace",
+		"additional:shine_light",
+		"additional:thorns",
+		"additional:less_exhaustion",
+		"additional:body",
+		"additional:spawn",
+		"additional:cracking_crystal",
+		"additional:descriptions/no_helmet",
+		"additional:no_helmet",
+		"additional:crystal_smash",
+		"additional:hurt"
+	],
+	"icon": "minecraft:amethyst_cluster",
+	"order": 10,
+	"impact": 2,
+	"name": "Shine",
+	"description": "A mystical being made entirely from crystal matter. Shine's are able to harness the arcane elements of crystals, using them to access unique and powerful abilities."
+}

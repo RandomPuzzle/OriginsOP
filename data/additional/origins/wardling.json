@@ -1,0 +1,26 @@
+{
+	"powers": [
+		"additional:sculk_blind",
+		"additional:sculk_color",
+		"additional:sculk_echolocation",
+		"additional:sculk_shader",
+		"additional:sculk_movement",
+		"additional:sculk_sense",
+		"additional:sculk_underground",
+		"additional:sculk_riddick",
+		"additional:sculk_attribute1",
+		"additional:sculk_attribute2",
+		"additional:sculk_attribute3",
+		"additional:sculk_resource",
+		"additional:sculk_resource2",
+		"additional:sculk_resource3",
+		"additional:sculk_rage",
+		"additional:sculk_aggro",
+		"additional:sculk_primary2"
+	],
+	"icon": "minecraft:end_portal_frame",
+	"order": 4,
+	"impact": 3,
+	"name": "Wardling",
+	"description": "You hail from a tribe of Sculk-Human hybrids that devolved the need for sight. As a Wardling, you must rely on your heightened sense of sound and vibrations to navigate this world."
+}

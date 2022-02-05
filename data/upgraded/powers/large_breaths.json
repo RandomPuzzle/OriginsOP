@@ -1,0 +1,20 @@
+{
+	"type": "origins:stacking_status_effect",
+    "min_stacks": 0,
+    "max_stacks": 1,
+    "duration_per_stack": 20,
+    "effect": {
+        "duration": 100,
+        "is_ambient": false,
+        "show_particles": false,
+        "show_icon": false,
+        "effect": "minecraft:water_breathing"
+    },
+    "condition": {
+        "type": "origins:submerged_in",
+        "inverted": false,
+        "fluid": "minecraft:water"
+    },
+	"name": "Large Breaths",
+	"description": "The knowledge of your ancestors breaths allows you to breathe underwater. You also now dig at normal speed whilst underwater."
+}

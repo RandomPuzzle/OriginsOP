@@ -1,0 +1,36 @@
+{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:execute_command",
+		"command": "playsound minecraft:entity.iron_golem.step player @a[distance=0..8] ~ ~ ~ 2 1",
+		"permission_level": 4
+    },
+    "cooldown": 20,
+	"hidden": true,
+    "hud_render": {
+        "should_render": false
+    },
+	"key": {
+        "key": "key.back",
+        "continuous": true
+    },
+	"condition": {
+	"type": "origins:and",
+	"conditions": [
+    {
+      "type": "origins:sprinting",
+	  "inverted": true
+    },
+    {      
+		"type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0.0,
+		"inverted": true
+    },
+	{
+		"type": "origins:on_block"
+	}
+  ]
+}
+}

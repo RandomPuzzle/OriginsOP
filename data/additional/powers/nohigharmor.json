@@ -1,0 +1,25 @@
+{
+    "name": "Fluid body",
+	"description": "Becouse of your composition you are very flexible and need armor that fits your body, you cant use hard armor.",
+	"type": "origins:restrict_armor",
+	"head": {
+		"type": "origins:armor_value",
+		"comparison": ">",
+		"compare_to": 1
+	},
+	"chest": {
+		"type": "origins:armor_value",
+		"comparison": ">",
+		"compare_to": 5
+	},
+	"legs": {
+		"type": "origins:armor_value",
+		"comparison": ">",
+		"compare_to": 4
+	},
+	"feet": {
+		"type": "origins:armor_value",
+		"comparison": ">",
+		"compare_to": 1
+	}
+}

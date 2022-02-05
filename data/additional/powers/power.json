@@ -1,0 +1,11 @@
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+	"type": "origins:execute_command",
+	"command": "function additional:powerful",
+	"permission_level": 4
+	},
+    "interval": 100,
+	"name": "Harness Energy",
+	"description": "You are faster and stronger whilst a fully developed crystal cluster is on your head."
+}

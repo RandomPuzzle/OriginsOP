@@ -1,0 +1,24 @@
+{
+	"powers": [
+		"additional:lushsmolman",
+		"additional:poison_dart",
+		"additional:lushblind",
+		"additional:dart_sound",
+		"additional:toggle",
+		"additional:climbing",
+		"additional:delicacy",
+		"additional:berries/berry",
+		"additional:berries/glow_berry",
+		"additional:berries/desc",
+		"additional:lush_spawn",
+		"additional:fragile",
+		"additional:flammable",
+		"additional:desc",
+		"additional:language"
+	],
+	"icon": "minecraft:glow_berries",
+	"order": 10,
+	"impact": 2,
+	"name": "Lusherian",
+	"description": "A small humanoid creature, living in villages deep within the lush caves."
+}

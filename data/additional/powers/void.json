@@ -1,0 +1,15 @@
+{
+  "type": "origins:self_action_when_hit",
+  "entity_action": {
+    "type": "origins:execute_command",
+    "permission_level": 4,
+    "command": "execute as @s run function additional:instinct"
+  },
+  "damage_condition": {
+    "type": "origins:name",
+    "name": "outOfWorld"
+  },
+  "name": "Teleportation",
+  "description": "You know how to escape the void, when you fall in you will teleport out.",
+  "cooldown": 20
+}

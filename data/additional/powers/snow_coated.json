@@ -1,0 +1,6 @@
+{
+    "type": "origins:particle",
+    "particle": "minecraft:snowflake",
+    "frequency": 5,
+	"hidden": true
+}

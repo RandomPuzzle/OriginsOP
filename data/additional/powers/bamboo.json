@@ -1,0 +1,62 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "bamboo"
+								}
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "offhand",
+							"item_condition": {
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "bamboo"
+								}
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:health",
+					"comparison": "<",
+					"compare_to": 40.0
+				}
+			]
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:heal",
+					"amount": "5"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:bamboo 1",
+					"permission_level": 4
+				}
+			]
+		}
+	},
+	"cooldown": 1,
+	"hud_render": {
+		"should_render": false
+	},
+	"key": {
+		"key": "key.origins.primary_active",
+		"continuous": false
+	},
+	"name": "Bamboo Benefit",
+	"description": "Using your primary key while holding bamboo will give you 4 hunger points."
+}

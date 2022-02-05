@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"additional:nibble_sized",
+		"extraorigins:nimble",
+		"extraorigins:small_appetite",
+		"origins:climbing"
+	],
+	"icon": "minecraft:oak_button",
+	"order": 0,
+	"impact": 3,
+	"name": "Pixeling",
+	"description": "A younger version of the inchling, these creatures are extremly minute. Some may mistake them for ants."
+}

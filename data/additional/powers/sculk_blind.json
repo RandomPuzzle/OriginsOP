@@ -1,0 +1,70 @@
+{
+    "type": "origins:multiple",
+    "start": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:blindness 999999 1 true",
+            "permission_level": 4
+        },
+        "entity_action_respawned": {  
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:blindness 999999 1 true",
+            "permission_level": 4
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "effect clear @s minecraft:blindness",
+            "permission_level": 4
+        }
+    },
+    "reset": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {  
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "additional:sculk_resource",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "additional:sculk_resource2",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "additional:sculk_resource3",
+                    "change": -601
+                }
+            ]
+        }
+    },
+    "check" : {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:blindness 999999 1 true",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:night_vision"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "additional:sculk_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "name": "Blindness",
+    "description": "Your species has devolved the need for vision. You are permanently blind, unable to sprint or land critical hits."
+}

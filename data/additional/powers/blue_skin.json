@@ -1,0 +1,9 @@
+{
+    "type": "origins:model_color",
+    "red": 0.6,
+    "green": 0.8,
+    "blue": 0.9,
+    "alpha": 0.7,
+    "name": "Blue Skin",
+    "description": "Your body is made out of ice which makes your skin blue and transparent."
+}

@@ -1,0 +1,578 @@
+{
+    "type": "origins:action_over_time",
+    "entity_action": 
+    {
+        "type": "origins:if_else_list",
+        "actions": [
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:lava",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:block_in_radius",
+                            "block_condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:lava"
+                                    },
+                                    {      
+                                        "type": "origins:fluid",
+                                        "fluid_condition": {
+                                            "type": "origins:still"
+                                        }
+                                    }
+                                ]
+                            },
+                            "radius": 1,
+                            "shape": "cube",
+                            "comparison": ">=",
+                            "compare_to": 6
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": -20
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:water",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 20
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": ">=",
+                                "compare_to": 2.0
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": -5
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 1.2
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": -2
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 1.1
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": -1
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.95
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 1
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.9
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 1
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.8
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 2
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.7
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 3
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.6
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 3
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.5
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 5
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.3
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 5
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.25
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 5
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.2
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 6
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0.05
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 7
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 7
+                }
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": -0.2
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 8
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": -0.3
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 9
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": -0.5
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 10
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "additional:heat",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": "==",
+                                "compare_to": -0.7
+                            }
+                        }
+                    ]
+                    
+                },
+                "action":{
+                    "type": "origins:change_resource",
+                    "resource": "additional:cold",
+                    "change": 12
+                }
+            }
+            
+        ]
+    },
+    "interval": 5,
+    "name": "Achilles heel",
+    "description": "No matter how powerful you are, you're incredibly weak to one thing: cold.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/ice.png",
+            "text": "Colder biomes will lower your temperature! look out!"
+        }
+    ]
+}

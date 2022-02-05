@@ -1,0 +1,9 @@
+{
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "block": "minecraft:blast_furnace"
+    },
+    "name": "Too risky",
+    "description": "you can't use blast furnaces or smokers because you're scared of being burned"
+}

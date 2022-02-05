@@ -1,0 +1,19 @@
+{
+    "name": "Half soul, half water",
+    "description": "Upon death you lose half of you mass, meaning half of your hearts and size.",
+    "type": "origins:action_on_callback",
+    "entity_action_respawned": {
+        "type": "origins:and",
+        "actions": [{
+                "type": "origins:execute_command",
+                "command": "scale divide extraorigins:modify_size 1.5 @s",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale divide pehkui:health 1.5 @s",
+                "permission_level": 4
+            }
+        ]
+    }
+}

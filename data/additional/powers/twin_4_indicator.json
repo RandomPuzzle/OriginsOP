@@ -1,0 +1,594 @@
+{
+	"name": "ATK Damage Indicator",
+	"hidden": true,
+	
+	"type": "origins:multiple",
+	
+	"up_9": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 4,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 16,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_up_9_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"up_9_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"up_9_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_9_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_9_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": 9
+				}
+			]
+		}
+	},
+	
+	"up_7": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 3,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 16,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_up_7_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"up_7_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"up_7_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_7_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_7_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": 7
+				}
+			]
+		}
+	},
+	
+	"up_5": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 2,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 16,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_up_5_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"up_5_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"up_5_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_5_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_5_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": 5
+				}
+			]
+		}
+	},
+	
+	"up_3": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 16,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_up_3_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"up_3_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"up_3_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_3_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_3_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": 3
+				}
+			]
+		}
+	},
+	
+	
+	"up_1": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 16,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_up_1_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"up_1_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"up_1_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_1_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_up_1_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	
+	
+	
+	"down_-1": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 17,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_down_-1_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"down_-1_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"down_-1_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-1_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-1_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": -1
+				}
+			]
+		}
+	},
+	
+	"down_-3": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 2,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 17,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_down_-3_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"down_-3_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"down_-3_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-3_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-3_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": -3
+				}
+			]
+		}
+	},
+	
+	"down_-5": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 3,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 17,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_down_-5_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"down_-5_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"down_-5_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-5_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-5_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": -5
+				}
+			]
+		}
+	},
+	
+	"down_-7": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 4,
+		"start_value": 4,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 17,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "additional:twin_4_indicator_down_-7_b",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		}
+	},
+	
+	"down_-7_b": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"down_-7_detection": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-7_b",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_4_indicator_down_-7_b",
+			"change": -1
+		},
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_damage base get",
+					"comparison": "==",
+					"compare_to": -7
+				}
+			]
+		}
+	}
+}

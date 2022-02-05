@@ -1,0 +1,10 @@
+{
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+        "name": "Take more damage.",
+        "operation": "addition",
+        "value": 2
+    },
+    "name": "Cracking Crystal",
+    "description": "Your crystal body cracks when taking damage. You take more damage from all damage types."
+}

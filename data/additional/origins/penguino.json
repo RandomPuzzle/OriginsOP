@@ -1,0 +1,32 @@
+{
+	"powers": [
+		"origins:aquatic",
+		"additional:underwater_superiority",
+		"additional:water_propulsion",
+		"additional:underwater_sight",
+		"additional:rock_hopping",
+		"additional:sliding",
+		"additional:belly_slide",
+		"additional:small_stature",
+		"additional:cold_home",
+		"additional:carnivore",
+		"additional:snow_coated",
+		"additional:waddle",
+		"additional:penguin_health",
+		"additional:polar_nemisis",
+		"additional:heatwave",
+		"additional:fire_weakness",
+		"additional:intruding_feathers",
+		"additional:reset"
+	],
+	"icon": "minecraft:snowball",
+	"order": 1,
+	"impact": 3,
+	"name": "Penguino",
+	"description": "Born with the blood of a penguin , you share some similarities with their skils and properties as emperors of the sea.",
+	"upgrades": {
+		"condition": "minecraft:end/kill_dragon",
+		"origin": "upgraded:evolved_penguino",
+		"announcement": "You have unlocked a hidden potential within you and have evolved! May want to check your origin again..."
+	}
+}

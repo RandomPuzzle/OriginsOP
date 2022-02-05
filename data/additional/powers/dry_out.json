@@ -1,0 +1,41 @@
+{
+    "type":"origins:stacking_status_effect" ,
+    "min_stacks": 0 ,
+    "max_stacks": 5 ,
+    "duration_per_stack": 50 ,
+    "effect": {
+        "effect":"minecraft:slowness" ,
+        "duration": 100 ,
+        "aplifier": 2 ,
+        "show_particles": false
+    } ,
+    "condition": {
+        "type":"origins:or",
+        "conditions": [
+            {"type":"origins:biome",
+            "biome":"minecraft:desert"} ,
+            {"type":"origins:biome" ,
+            "biome":"minecraft:beach"} ,
+            {"type":"origins:biome" ,
+            "biome":"minecraft:desert_hills"} ,
+            {"type":"origins:biome" ,
+            "biome":"minecraft:badlands_plateau"},
+            {"type":"origins:biome" ,
+            "biome":"minecraft:modified_badlands_plateau"},
+            {"type":"origins:biome" ,
+            "biome":"minecraft:wooded_modified_badlands_plateau"},
+            {"type":"origins:biome" ,
+            "biome":"minecraft:eroded_badlands"},
+            {"type":"origins:biome" ,
+            "biome":"minecraft:nether_wastes"},
+            {"type":"origins:biome" ,
+            "biome":"minecraft:warped_forest"},
+            {"type":"origins:biome" ,
+            "biome":"minecraft:soul_sand_valley"},
+            {"type":"origins:biome" ,
+            "biome":"minecraft:basalt_deltas"}
+        ]
+    },
+            "name":"Dry out" ,
+            "description":"You're slower in certain biomes due to dehydration."
+}

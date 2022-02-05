@@ -1,0 +1,636 @@
+{
+	"name": "ATK Speed",
+	"hidden": true,
+	
+	"type": "origins:multiple",
+	
+	"5_clear_request": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increase",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Decrease",
+					"permission_level": 2
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "!=",
+					"compare_to": 4
+				},
+				{
+					"type": "origins:resource",
+					"resource": "additional:twin_5_cooldown",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	
+	"5_increase_request": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add Twin_5_Increase",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Decrease",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "additional:twin_5_cooldown"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 4
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "<",
+					"compare_to": 8
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": true
+		}
+	},
+	
+	"5_decrease_request": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add Twin_5_Decrease",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increase",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "additional:twin_5_cooldown"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 4
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		}
+	},
+	
+	"5_increase_check": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add Twin_5_Increasing",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increase",
+					"permission_level": 2
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increase]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "execute at @s as @a[tag=Twin_5_Decrease] if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	
+	"5_decrease_check": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Decrease",
+					"permission_level": 2
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Decrease]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "execute at @s as @a[tag=Twin_5_Increase] if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	
+	"5_increase_1": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1.2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 7",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 0.8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"5_increase_2": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1.2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 6",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 0.8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"5_increase_3": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 2
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 3",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1.2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 5",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 0.8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"5_increase_mid": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 3
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 4",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 4",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"5_increase_5": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 4
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 5",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1.2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 3",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 0.8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"5_increase_6": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 5
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 6",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1.2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 0.8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"5_increase_7": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 6
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 7",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1.2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 0.8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"5_increase_8": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {	
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=Twin_5_Increasing]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "attribute @s minecraft:generic.attack_speed base get",
+					"comparison": "==",
+					"compare_to": 7
+				}
+			]
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.note_block.bit master @s ~ ~ ~ 0.7 1.2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run attribute @s minecraft:generic.attack_speed base set 0",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @a if score @s UUID_1 = @p TwinUUID_1 if score @s UUID_2 = @p TwinUUID_2 if score @s UUID_3 = @p TwinUUID_3 if score @s UUID_4 = @p TwinUUID_4 run playsound minecraft:block.note_block.bit master @p ~ ~ ~ 0.7 0.8",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_5_Increasing",
+					"permission_level": 2
+				}
+			]
+		}
+	}
+}

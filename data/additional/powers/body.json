@@ -1,0 +1,10 @@
+{
+  "type": "origins:model_color",
+  "alpha": 0.95,
+  "red": 0.375,
+	"green": 0.175,
+	"blue": 0.45,
+  "name": "Crystal Body",
+  "description": "You are made of crystal, and therefore have a crystal appearance.",
+  "hidden": false
+}

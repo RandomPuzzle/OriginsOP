@@ -1,0 +1,15 @@
+{
+    "type": "origins:freeze",
+    "hidden": true,
+    "description": "you start evaporating in hot biomes and freezing in really cold ones.",
+    "interval": 10,
+    "freeze_duration": 3,
+    "condition": {
+        "type": "origins:biome",
+        "condition": {
+            "type": "origins:temperature",
+            "comparison": "<",
+            "compare_to": 0.0
+        }
+    }
+}

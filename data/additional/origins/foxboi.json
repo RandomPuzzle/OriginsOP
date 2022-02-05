@@ -1,0 +1,30 @@
+{
+	"powers": [
+     "additional:stealth_timer",
+     "additional:stealth_countdown",	   
+	   "additional:stealth_translucent",
+     "additional:stealth_w",
+     "additional:stealth_a",
+     "additional:stealth_s",
+     "additional:stealth_d",
+	   "additional:stealth_jump",
+	   "additional:stealth_primary",
+	   "additional:pounce",
+	   "additional:pounce_aerialdamage",
+	   "additional:smolman",
+	   "additional:speed",
+	   "additional:jump",
+	   "additional:fox_eyes",
+	   "additional:fox_pouch",
+	   "additional:fox_pouch_sound",
+	   "additional:monch",
+	   "additional:yummy_berries",
+	   "additional:run",
+	   "origins:fall_immunity"
+	],
+	"icon": "minecraft:sweet_berries",
+	"order": 2,
+	"impact": 2,
+	"name": "Fox OP",
+	"description": "Fundy's fox origin from the Origins SMP"
+}

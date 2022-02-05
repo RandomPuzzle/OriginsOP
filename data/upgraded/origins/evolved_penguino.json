@@ -1,0 +1,31 @@
+{
+	"powers": [
+		"origins:aquatic",
+		"additional:underwater_superiority",
+		"additional:water_propulsion",
+		"additional:underwater_sight",
+		"additional:rock_hopping",
+		"additional:sliding",
+		"additional:belly_slide",
+		"additional:small_stature",
+		"additional:cold_home",
+		"additional:carnivore",
+		"additional:snow_coated",
+		"additional:waddle",
+		"additional:penguin_health",
+		"additional:polar_nemisis",
+		"additional:heatwave",
+		"additional:fire_weakness",
+		"additional:intruding_feathers",
+		"upgraded:large_breaths",
+		"upgraded:flightless_no_more",
+		"upgraded:rockhopper_leap",
+		"origins:aqua_affinity"
+	],
+	"unchoosable": true,
+	"icon": "minecraft:snowball",
+	"order": 11,
+	"impact": 3,
+	"name": "Evolved Penguino",
+	"description": "After eliminating the evil Ender Dragon, the spirits of your long lost ancestors speak to you and pass their ancient knowledge for your disposal, making you an Evolved Penguino"
+}

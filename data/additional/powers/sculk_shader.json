@@ -1,0 +1,6 @@
+{
+    "type": "origins:shader",
+    "shader": "minecraft:shaders/post/sobel.json",
+    "name": "Seismic Sense",
+    "description": "You 'see' the world through vibrations. Textures become difficult to differentiate, but you are able to detect non-sneaking players and entities through walls."
+}

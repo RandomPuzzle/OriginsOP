@@ -1,0 +1,23 @@
+{
+	"powers": [
+		"origins:aquatic",
+		"origins:vegetarian",
+		"origins:more_exhaustion",
+		"origins:water_breathing",
+		"additional:adaptive_lungs",
+		"origins:aqua_affinity",
+		"origins:like_water",
+		"origins:swim_speed",
+		"additional:water_legs",
+		"additional:shielded",
+		"additional:long_lifespan",
+		"additional:long_lifespan_setup",
+		"origins:no_shield",
+		"additional:water_vision"
+	],
+	"icon": "minecraft:kelp",
+	"order": 10,
+	"impact": 2,
+	"name": "Turtling",
+	"description": "Turtlings evolved from Sea Turtles and through their adaptations they can conquer both land and seas. It's natural protection and health makes it one of the most resiliant Origins out there at the cost of it's slowness, as well as both restricted and demanding diet."
+}

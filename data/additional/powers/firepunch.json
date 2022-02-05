@@ -1,0 +1,93 @@
+{
+    "type": "origins:multiple",
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+    "play_sound":{
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "entity_action": {
+            
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:power_active",
+                    "power": "additional:firepunch_toggle"
+                },
+                "if_action":{
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:item.firecharge.use"
+                },
+                "else_action":{
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.candle.extinguish"
+                }
+        }
+    },
+    "active_hud": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 7,
+        "start_value":1,
+        "hud_render":{
+            "should_render":true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_points_01.png",
+            "bar_index": 6,
+            "condition": {
+                "type": "origins:power_active",
+                "power": "additional:firepunch_toggle"
+            }
+        }
+    },
+    "fire_punch": {
+        "type": "origins:action_on_hit",
+        "condition": {
+            "type": "origins:and",
+            "conditions":[
+            {"type": "origins:power_active",
+            "power": "additional:firepunch_toggle"},
+            {"type": "origins:resource",
+                "resource": "additional:heat",
+                "comparison": ">",
+                "compare_to": 50}
+            ]
+        },
+        "bientity_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:set_on_fire",
+                        "duration": 15
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "additional:heat",
+                        "change": -50
+                }
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 2,
+                    "source": {
+                        "name": "inFire.player",
+                        "fire": true
+                    }
+                }
+                
+            ]
+        }
+        
+    },
+    "name": "Inferno talons",
+    "description": "Using heat stored in your body, you can heat up your talons and items you are holding to dangerously high temperatures, doing extra damage and igniting enemies."
+}

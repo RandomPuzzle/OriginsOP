@@ -1,0 +1,28 @@
+{
+    "name": "Splitting",
+    "description": "You split and summon a slime of random size, losing almost half of your mass meaning half of your hearts and size.",
+    "type": "origins:active_self",
+    "cooldown": 400,
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+                "type": "origins:execute_command",
+                "command": "scale divide pehkui:health 1.5 @s",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "summon minecraft:slime",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale divide extraorigins:modify_size 1.5 @s",
+                "permission_level": 4
+            }
+        ]
+    }
+}

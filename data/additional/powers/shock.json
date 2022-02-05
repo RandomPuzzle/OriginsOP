@@ -1,0 +1,41 @@
+{
+    "type": "origins:active_self",
+    "name": "Shockwave",
+    "description": "You can freeze all mobs that are in a distance of 10 block and under's feet for 5 seconds with a cool down of 30 seconds",
+    "hidden": false,
+    "cooldown": 600,
+    "entity_action":
+    {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "effect give @e[distance=0.1..10] minecraft:slowness 5 255 true"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:flash ~ ~ ~ 0 0 0 0 1 normal"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:dust 5 5 5 .7 ~ ~1 ~ 1 1 1 1 25 normal"
+            },
+            {
+                "type": "origins:play_sound",
+                "sound": "block.powder_snow.hit",
+                "volume": 10,
+                "pitch": 2
+            }
+        ]
+    },
+    "hud_render":
+    {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar2.png",
+        "bar_index": 2
+    },
+    "key":"key.loadToolbarActivator"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:overworld",
+  "structure": "minecraft:jungle_pyramid",
+  "spawn_strategy": "default",
+  "name": "Natural Habitat",
+  "description": "You spawn in the jungle.",
+  "hidden": false
+}

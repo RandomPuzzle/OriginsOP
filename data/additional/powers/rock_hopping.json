@@ -1,0 +1,9 @@
+{
+	"type":  "origins:modify_jump",
+	"modifier": {
+		"operation": "addition",
+		"value": 0.25
+	},
+	"name": "Rock Hopping",
+	"description": "Taking a leaf out of Rockhopper's book, you are able to jump higher."
+}

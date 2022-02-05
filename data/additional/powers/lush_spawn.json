@@ -1,0 +1,8 @@
+{
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:overworld",
+  "biome": "minecraft:lush_caves",
+  "spawn_strategy": "default",
+  "name": "Lush Dweller",
+  "description": "You spawn in an underground Lush Cave."
+}

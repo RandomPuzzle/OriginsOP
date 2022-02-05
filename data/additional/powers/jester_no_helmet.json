@@ -1,0 +1,10 @@
+{
+	"name": "Jester's Hood",
+	"description": "Due to the fact that your already wearing a really big headpiece, helmets cannot fit on your head.",
+  "type": "origins:restrict_armor",
+  "head": {
+    "type": "origins:armor_value",
+    "comparison": ">",
+    "compare_to": 0
+  }
+}

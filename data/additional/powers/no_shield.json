@@ -1,0 +1,11 @@
+{
+  "name": "Useless Equipment",
+  "description": "You have no use for shields due to your reflexes.",
+  "type": "origins:prevent_item_use",
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "tag": "origins:shields"
+    }
+  }
+}

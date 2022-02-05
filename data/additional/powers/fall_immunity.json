@@ -1,0 +1,10 @@
+{
+  "type": "origins:invulnerability",
+  "damage_condition": {
+    "type": "origins:name",
+    "name": "fall"
+  },
+  "hidden": false,
+  "name": "Solid Body",
+  "description": "Your body has been formed by and solidified by underground rock. This gives you more health and prevents fall damage."
+}

@@ -1,0 +1,12 @@
+{
+  "cooldown": 200,
+  "description": "Press 'G' to launch into the air.",
+  "hud_render": {
+    "bar_index": 4
+  },
+  "key": "primary",
+  "name": "Launch",
+  "sound": "minecraft:entity.parrot.fly",
+  "speed": 2,
+  "type": "origins:launch"
+}

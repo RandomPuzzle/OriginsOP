@@ -1,0 +1,50 @@
+{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "operation": "addition",
+        "value": 0.1,
+        "name": "Increased sprinting speed"
+    },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+            "type": "origins:on_block",
+            "block_condition": {
+                "type": "origins:block",
+                "block": "minecraft:ice"
+            }},
+            {
+                "type": "origins:in_rain"
+            },
+            {
+                "type": "origins:on_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:packed_ice"
+            }},
+            {
+            "type": "origins:on_block",
+            "block_condition": {
+                "type": "origins:block",
+                "block": "minecraft:blue_ice"
+            }},
+            {
+                "type": "origins:on_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:snow_block"
+            }},
+            {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:snow"
+            }}
+        ]
+    },
+    "name": "Made of ice",
+    "description": "Because your made of ice in water, ice, snow or in rain you go faster, but in return you have 2 less hearts than humans."
+}

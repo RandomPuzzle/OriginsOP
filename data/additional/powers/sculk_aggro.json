@@ -1,0 +1,460 @@
+{
+    "type": "origins:multiple",
+    "1": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 20
+        }
+    },
+    "2": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 19
+        }
+    },
+    "3": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 18
+        }
+    },
+    "4": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 17
+        }
+    },
+    "5": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 16
+        }
+    },
+    "6": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 15
+        }
+    },
+    "7": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 14
+        }
+    },
+    "8": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 13
+        }
+    },
+    "9": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 12
+        }
+    },
+    "10": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 11
+        }
+    },
+    "11": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 10
+        }
+    },
+    "12": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 9
+        }
+    },
+    "13": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 8
+        }
+    },
+    "14": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 7
+        }
+    },
+    "15": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 6
+        }
+    },
+    "16": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 5
+        }
+    },
+    "17": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 4
+        }
+    },
+    "18": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 3
+        }
+    },
+    "19": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased attack"
+            },
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_base",
+                "value": 0.1,
+                "name": "Increased speed"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<",
+            "compare_to": 2
+        }
+    },
+    "rage": {
+        "type": "origins:conditioned_attribute",
+        "modifier": [
+            {
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "multiply_total",
+                "value": 0.5,
+                "name": "Increased attack"
+            }
+        ],
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "additional:sculk_resource2",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "name": "Aggression",
+    "description": "You grow stronger and faster as you lose health. At half a heart, you are 2x faster and deal 20 damage with your bare fists."
+}

@@ -1,0 +1,24 @@
+{
+  "condition": {
+    "type": "origins:submerged_in",
+    "fluid": "minecraft:water"
+  },
+  "cooldown": 0,
+  "description": "Press 'G' while underwater to hold your breath for 2 minutes.",
+  "entity_action": {
+    "type": "origins:apply_effect",
+    "effects": [
+      {
+        "effect": "minecraft:water_breathing",
+        "show_particles": false,
+        "duration": 2400,
+        "amplifier": 0
+      }
+    ]
+  },
+  "hud_render": {
+    "should_render": false
+  },
+  "name": "Hold Breath",
+  "type": "origins:active_self"
+}

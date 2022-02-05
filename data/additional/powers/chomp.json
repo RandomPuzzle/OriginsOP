@@ -1,0 +1,24 @@
+{
+	"type": "origins:conditioned_attribute",
+	"modifiers":
+	{
+		"attribute": "minecraft:generic.attack_damage",
+		"operation": "addition",
+		"value": 3.5
+	},
+	"condition": {
+		"type": "origins:and",
+		"conditions": [{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:air"
+				}
+			}
+		}]
+	},
+	"name": "Chomp",
+	"description": "While having no item in your mainhand, you chomp your enemies dealing more damage than regular fists."
+}

@@ -1,0 +1,375 @@
+{
+	"name": "Twin Pairing",
+	"description": "You need to find your twin to work with you. When you hit another unpaired twin while both of you have slot 9 selected, you will pair up. You will not be unpaired unless you or your twin changes origin.",
+	
+	"type": "origins:multiple",
+	
+	"twin_uuid_setup": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard objectives add TwinUUID_1 dummy",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard objectives add TwinUUID_2 dummy",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard objectives add TwinUUID_3 dummy",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard objectives add TwinUUID_4 dummy",
+					"permission_level": 2
+				}
+			]
+		},
+		"entity_action_lost": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p TwinUUID_1 = @s UUID_1 run scoreboard players reset @s TwinUUID_1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p TwinUUID_2 = @s UUID_2 run scoreboard players reset @s TwinUUID_2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p TwinUUID_3 = @s UUID_3 run scoreboard players reset @s TwinUUID_3",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute at @s as @a if score @p TwinUUID_4 = @s UUID_4 run scoreboard players reset @s TwinUUID_4",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_3",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_4",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"no_twin_tag": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add NoTwin",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove Twin_Alone",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_3",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_4",
+					"permission_level": 2
+				}
+			]
+		},
+		"falling_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s remove NoTwin",
+					"permission_level": 2
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "scoreboard players get @s TwinUUID_1",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "scoreboard players get @s TwinUUID_2",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "scoreboard players get @s TwinUUID_3",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:command",
+					"command": "scoreboard players get @s TwinUUID_4",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	
+	"change_origin_reset": {
+		"type": "origins:action_on_callback",
+		"entity_action_lost": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.max_health base set 20",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.armor base set 0",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_damage base set 1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 4",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s reach-entity-attributes:attack_range base set 0",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s reach-entity-attributes:reach base set 0",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.movement_speed base set 0.1",
+					"permission_level": 2
+				}
+			]
+		}
+	},
+	
+	"no_twin_reset": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_2",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_3",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scoreboard players reset @s TwinUUID_4",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.max_health base set 20",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.armor base set 0",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_damage base set 1",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.attack_speed base set 4",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s reach-entity-attributes:attack_range base set 0",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s reach-entity-attributes:reach base set 0",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "attribute @s minecraft:generic.movement_speed base set 0.1",
+					"permission_level": 2
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "execute if entity @s[tag=NoTwin]",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	"save_self_uuid_of_twin": {
+		"type": "origins:self_action_on_hit",
+		"cooldown": 0,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_1 run data get entity @p[tag=NoTwin] UUID[0]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_2 run data get entity @p[tag=NoTwin] UUID[1]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_3 run data get entity @p[tag=NoTwin] UUID[2]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_4 run data get entity @p[tag=NoTwin] UUID[3]"
+				}
+			]
+		},
+		"target_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 8
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s SelectedItemSlot",
+			"comparison": "==",
+			"compare_to": 8
+		}
+	},
+	
+	"save_twin_uuid_of_self": {
+		"type": "origins:target_action_on_hit",
+		"cooldown": 0,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_1 run data get entity @p[tag=NoTwin] UUID[0]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_2 run data get entity @p[tag=NoTwin] UUID[1]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_3 run data get entity @p[tag=NoTwin] UUID[2]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute as @s at @p[tag=NoTwin,distance=1..] store result score @s TwinUUID_4 run data get entity @p[tag=NoTwin] UUID[3]"
+				}
+			]
+		},
+		"target_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 8
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s SelectedItemSlot",
+			"comparison": "==",
+			"compare_to": 8
+		}
+	}
+
+	
+
+}

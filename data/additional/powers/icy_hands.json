@@ -1,0 +1,19 @@
+{
+    "type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type": "origins:apply_effect",
+        "effect": {
+            "effect": "minecraft:slowness",
+            "amplifier": 255,
+            "duration": 40
+        }
+    },
+    "cooldown": 100,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+        "bar_index": 6
+    },
+    "name": "Icy Hands",
+    "description": "Every 5 seconds you can give a player slowness by attacking them!"
+}

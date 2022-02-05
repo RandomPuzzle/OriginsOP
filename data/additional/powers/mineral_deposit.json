@@ -1,0 +1,17 @@
+{
+  "type": "origins:inventory",
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": false
+    },
+  "name": "Mineral Deposit",
+  "description": "You can store extra items inside yourself using your secondary. All items except redstone are dropped on death.",
+    "drop_on_death": true,
+      "drop_on_death_filter": {
+        "type": "origins:ingredient",
+		"ingredient": {
+        "item": "minecraft:redstone"
+    },
+	"inverted": true
+  }
+}

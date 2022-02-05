@@ -1,0 +1,18 @@
+{
+    "type": "origins:fire_projectile",
+    "entity_type": "minecraft:arrow",
+    "cooldown": 150,
+	"speed": 10,
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 10
+    },
+	"tag": "{pickup:0b,PierceLevel:5b,CustomPotionEffects:[{Id:9,Duration:200,Amplifiers:1},{Id:19,Duration:200,Amplifiers:0}]}",
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": true
+    },
+	"name": "Poison Dart",
+	"description": "Pressing your primary key will fire a poison dart that poisons and nauseates any entity it hits."
+}

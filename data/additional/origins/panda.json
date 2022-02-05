@@ -1,0 +1,18 @@
+
+{
+	"powers": [
+		"additional:largestomach",
+		"origins:vegetarian",
+		"additional:claws",
+		"additional:taller",
+		"additional:roll",
+		"additional:jungle_spawn",
+		"additional:bamboo",
+		"additional:toocute"
+	],
+	"icon": "minecraft:bamboo",
+	"order": 4,
+	"impact": 2,
+	"name": "Panda",
+	"description": "a normal panda"
+}

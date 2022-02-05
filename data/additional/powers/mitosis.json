@@ -1,0 +1,18 @@
+{
+  "type": "origins:action_over_time",
+  "condition": {
+      "type": "origins:sprinting"
+  },
+  "entity_action": {
+      "type": "origins:chance",
+      "chance": 0.05,
+      "action": {
+            "type": "origins:spawn_entity",
+            "entity_type": "minecraft:slime",
+            "tag": "{Size: 0}"
+          }
+  },
+  "interval":6500,
+  "name": "Mitosis",
+  "description": "A small chance of a tiny slime spawning when sprinting."
+}

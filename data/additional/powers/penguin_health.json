@@ -1,0 +1,11 @@
+{
+	"type": "origins:attribute",
+	"modifier": {
+		"attribute": "minecraft:generic.max_health",
+		"operation": "addition",
+		"value": -6
+	},
+
+	"name": "Penguin Health",
+	"description": "Due to your size and blood, you only have 7 hearts."
+}

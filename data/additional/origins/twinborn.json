@@ -1,0 +1,48 @@
+{
+	"powers": [
+		"additional:player_uuid",
+		"additional:twin_pairing",
+		"additional:twin_alone",
+		"additional:hotbar_select",
+		"additional:twin_ability_list",
+		
+		"additional:twin_1_ability",
+		"additional:twin_1_cooldown",
+		
+		"additional:twin_2_ability",
+		"additional:twin_2_cooldown",
+		"additional:twin_2_indicator",
+		
+		"additional:twin_3_ability",
+		"additional:twin_3_cooldown",
+		"additional:twin_3_indicator",
+		
+		"additional:twin_4_ability",
+		"additional:twin_4_cooldown",
+		"additional:twin_4_indicator",
+		
+		"additional:twin_5_ability",
+		"additional:twin_5_cooldown",
+		"additional:twin_5_indicator",
+		
+		"additional:twin_6_ability",
+		"additional:twin_6_cooldown",
+		"additional:twin_6_indicator",
+		
+		"additional:twin_7_ability",
+		"additional:twin_7_cooldown",
+		"additional:twin_7_indicator",
+		
+		"additional:twin_8_ability",
+		
+		"additional:twin_9_ability",
+		"additional:twin_9_cooldown",
+		
+		"additional:twin_passive_abilities"
+    ],
+    "icon": "minecraft:yellow_bed",
+    "order": 14,
+    "impact": 3,
+	"name": "Twinborn",
+	"description": "The two of you arrived in this world together, and you wish to leave this world the same."
+}

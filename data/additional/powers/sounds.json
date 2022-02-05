@@ -1,0 +1,63 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "ambient":
+    {
+        "type": "origins:action_over_time",
+        "interval": 200,
+        "entity_action":
+        {
+            "type": "origins:chance",
+            "action":
+            {
+                "type": "origins:play_sound",
+                "sound": "entity.vex.ambient",
+                "volume": 0.4,
+                "pitch": 1.5
+            },
+            "chance": 0.4
+        },
+        "condition":
+        {
+            "type": "origins:sneaking",
+            "inverted": true
+        }
+    },
+    "hurt":
+    {
+        "type": "origins:self_action_when_hit",
+        "cooldown": 0,
+        "entity_action":
+        {
+            "type": "origins:play_sound",
+            "sound": "entity.vex.hurt",
+            "volume": 0.8,
+            "pitch": 1.5
+        },
+        "condition":
+        {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 0,
+            "inverted": true
+        }
+    },
+    "death":
+    {
+        "type": "origins:self_action_when_hit",
+        "cooldown": 0,
+        "entity_action":
+        {
+            "type": "origins:play_sound",
+            "sound": "entity.vex.death",
+            "volume": 1,
+            "pitch": 1.5
+        },
+        "condition":
+        {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 0
+        }
+    }
+}

@@ -1,0 +1,103 @@
+{
+    "type": "origins:multiple",
+    "up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "additional:sculk_resource3",
+            "change": 1
+        },
+        "interval": 2,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "additional:sculk_resource2",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "additional:sculk_resource3",
+            "change": -2
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "additional:sculk_resource2",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "roar": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:play_sound",
+            "sound": "minecraft:entity.ender_dragon.ambient",
+            "volume": 2,
+            "pitch": 2
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "additional:sculk_resource2",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "check": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "additional:sculk_resource2",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:sculk_resource3",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:sculk_resource2",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "reapply": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "additional:sculk_resource",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:sculk_resource3",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:sculk_resource2",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "name": "Roar",
+    "description": "By pressing your Echolocate key when below 3 hearts of health, you can exert all of your energy by letting out a loud screech. This will allow you to 'see' temporarily without hindering your speed. Be careful, because after doing this you won't be able to Echolocate normally again until after you have healed."
+}

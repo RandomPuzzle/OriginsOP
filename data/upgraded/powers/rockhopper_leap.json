@@ -1,0 +1,16 @@
+{
+    "type": "origins:launch",
+    "cooldown": 300,
+    "hud_render": {
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+		"bar_index": 8
+    },
+    "sound": "minecraft:entity.firework_rocket.blast",
+    "speed": 2,
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": true
+    },
+	"name": "Rockhopper Leap",
+	"description": "The knowledge of an ancient master rockhopper allows you to launch high up in the air. Secondary button to activate."
+}

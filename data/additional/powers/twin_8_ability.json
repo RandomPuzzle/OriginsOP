@@ -1,0 +1,279 @@
+{
+	"name": "8. Tether",
+	"description": "When you and your twin are at different Y levels, the lower twin gains the ability to climb as long as they are within 10 blocks of each other. The higher twin gets slow falling as long as they are within 20 blocks of each other.",
+	
+	"type": "origins:multiple",
+	
+	"y_scoreboard": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:execute_command",
+			"command": "scoreboard objectives add Y dummy",
+			"permission_level": 2
+		}
+	},
+	
+	"store_y": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute store result score @s Y run data get entity @s Pos[1]",
+			"permission_level": 2
+		}
+	},
+	
+	"climb_condition_complete": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"check_climb_conditions": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_8_ability_climb_condition_complete",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_8_ability_climb_condition_complete",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 7
+				},
+				{
+					"type": "origins:command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if entity @s[nbt={SelectedItemSlot:7}]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:command",
+							"command": "execute at @s[predicate=additional:world_overworld] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if score @p Y < @s Y if entity @s[distance=..10,predicate=additional:world_overworld]",
+							"comparison": "==",
+							"compare_to": 1
+						},
+						{
+							"type": "origins:command",
+							"command": "execute at @s[predicate=additional:world_nether] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if score @p Y < @s Y if entity @s[distance=..10,predicate=additional:world_nether]",
+							"comparison": "==",
+							"compare_to": 1
+						},
+						{
+							"type": "origins:command",
+							"command": "execute at @s[predicate=additional:world_end] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if score @p Y < @s Y if entity @s[distance=..10,predicate=additional:world_end]",
+							"comparison": "==",
+							"compare_to": 1
+						}
+					]
+				}
+			]
+		}
+	},
+	
+	"climb": {
+		"type": "origins:climbing",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "additional:twin_8_ability_climb_condition_complete",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	
+	"sf_condition_complete": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"check_sf_conditions": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_8_ability_sf_condition_complete",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_8_ability_sf_condition_complete",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 7
+				},
+				{
+					"type": "origins:command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if entity @s[nbt={SelectedItemSlot:7},nbt={OnGround:1b}]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:command",
+							"command": "execute at @s[predicate=additional:world_overworld] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if score @p Y > @s Y if entity @s[distance=..20,predicate=additional:world_overworld]",
+							"comparison": "==",
+							"compare_to": 1
+						},
+						{
+							"type": "origins:command",
+							"command": "execute at @s[predicate=additional:world_nether] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if score @p Y > @s Y if entity @s[distance=..20,predicate=additional:world_nether]",
+							"comparison": "==",
+							"compare_to": 1
+						},
+						{
+							"type": "origins:command",
+							"command": "execute at @s[predicate=additional:world_end] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if score @p Y > @s Y if entity @s[distance=..20,predicate=additional:world_end]",
+							"comparison": "==",
+							"compare_to": 1
+						}
+					]
+				}
+			]
+		}
+	},
+	
+	"slow_falling": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 1,
+		"max_stacks": 1,
+		"duration_per_stack": 35,
+		"effect": {
+			"effect": "minecraft:slow_falling",
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": true
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "additional:twin_8_ability_sf_condition_complete",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+
+	
+	"spawn_lead_parrot": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "summon parrot ~ ~-300 ~ {ActiveEffects:[{Id:14b,Duration:19999716,ShowParticles:0b}],Tags:[TwinLead],Invulnerable:1b,NoAI:1b,Silent:1b}",
+					"permission_level": 2
+				}
+			]
+		},
+		"falling_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tp @e[type=parrot,tag=TwinLead,distance=..2,sort=nearest,limit=1] ~ ~-1000 ~",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "kill @e[type=item,distance=..2,nbt={Item:{id:'minecraft:lead'}}]",
+						"permission_level": 2
+					}
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "additional:twin_8_ability_climb_condition_complete",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	"teleport_lead_parrot": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s run tp @e[type=parrot,tag=TwinLead,sort=nearest,limit=1] ~ ~0.5 ~",
+			"permission_level": 2
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "additional:twin_8_ability_climb_condition_complete",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	"leash_holder": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run data modify entity @e[type=parrot,tag=TwinLead,sort=nearest,limit=1] Leash.UUID set from entity @s UUID",
+			"permission_level": 2
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "additional:twin_8_ability_climb_condition_complete",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	"remove_lead_when_logging_out": {
+		"type": "origins:action_on_callback",
+		"entity_action_removed": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "tp @e[type=parrot,tag=TwinLead,distance=..2,sort=nearest,limit=1] ~ ~-1000 ~",
+					"permission_level": 2
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "kill @e[type=item,distance=..2,nbt={Item:{id:'minecraft:lead'}}]",
+						"permission_level": 2
+					}
+				}
+			]
+		}
+	}
+}

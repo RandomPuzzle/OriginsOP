@@ -1,0 +1,24 @@
+{
+    "type": "origins:stacking_status_effect",
+    "min_stacks": 2,
+    "max_stacks": 2,
+    "duration_per_stack": 10,
+    "effects": [
+        {
+            "effect": "minecraft:slowness",
+			"amplifier": 1,
+            "is_ambient": true,
+            "show_particles": false,
+            "show_icon": false
+        },
+		{
+            "effect": "minecraft:haste",
+			"amplifier": 2,
+            "is_ambient": true,
+            "show_particles": false,
+            "show_icon": false
+        }
+    ],
+	"name": "Heavy",
+	"description": "Your heavy stone body slows you down and prevents you from being able to swim. Instead you can walk on the bottom of water sources and cannot drown as you don't have lungs."
+}

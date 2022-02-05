@@ -1,0 +1,6 @@
+{
+    "type": "origins:elytra_flight",
+    "render_elytra": false,
+	"name": "Flightless No More!",
+	"description": "Your ancestors have passed on the knowledge to use your wings for both land and sea. You are now able to glide (like you would with an elytra)."
+}

@@ -1,0 +1,546 @@
+{
+	"name": "Passive Abilities",
+	"description": "As long as you have maximum air, your twin cannot drown. Every time you eat food, your twin gets some saturation. Any potion effect that lasts for over 3 seconds is shared to your twin.",
+	
+	"type": "origins:multiple",
+	
+	"air_condition_complete": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"check_air_conditions": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_passive_abilities_air_condition_complete",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "additional:twin_passive_abilities_air_condition_complete",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute at @s[predicate=additional:world_overworld] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if entity @s[nbt={Air:300s},predicate=additional:world_overworld]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "execute at @s[predicate=additional:world_nether] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if entity @s[nbt={Air:300s},predicate=additional:world_nether]",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "execute at @s[predicate=additional:world_end] as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if entity @s[nbt={Air:300s},predicate=additional:world_end]",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	
+	"gain_air": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:gain_air",
+			"value": 20
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "additional:twin_passive_abilities_air_condition_complete",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+
+	"share_food": {
+		"type": "origins:action_on_item_use",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s[nbt=!{foodLevel:20}] saturation 1 1 true",
+			"permision_level": 2
+		},
+		"item_condition": {
+			"type": "origins:food"
+		}
+	},
+	
+	
+	
+	"share_speed": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s speed 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:1b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_slowness": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s slowness 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:2b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_haste": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s haste 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:3b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_mining_fatigue": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s mining_fatigue 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:4b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_strength": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s strength 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:5b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_jump_boost": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s jump_boost 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:8b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_nausea": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s nausea 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:9b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_regeneration": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s regeneration 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:10b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_resistance": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s resistance 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:11b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_fire_resistance": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s fire_resistance 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:12b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_water_breathing": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s water_breathing 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:13b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_invisibility": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s invisibility 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:14b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_blindness": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s blindness 2 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:15b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_night_vision": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s night_vision 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:16b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_hunger": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s hunger 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:17b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_weakness": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s weakness 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:18b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_poison": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s poison 3 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:19b}].Duration",
+			"comparison": ">",
+			"compare_to": 100
+		}
+	},
+	
+	"share_wither": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s wither 3 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:20b}].Duration",
+			"comparison": ">",
+			"compare_to": 100
+		}
+	},
+	
+	"share_health_boost": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s health_boost 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:21b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_absorption": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s absorption 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:22b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_glowing": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s glowing 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:24b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_levitation": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s levitation 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:25b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_luck": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s luck 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:26b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_unluck": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s unluck 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:27b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_slow_falling": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s slow_falling 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:28b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_conduit_power": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s conduit_power 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:29b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_dolphins_grace": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s dolphins_grace 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:30b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_bad_omen": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s bad_omen 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:31b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	},
+	
+	"share_hero_of_the_village": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 run effect give @s hero_of_the_village 1 0 false",
+			"permision_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "data get entity @s ActiveEffects[{Id:32b}].Duration",
+			"comparison": ">",
+			"compare_to": 60
+		}
+	}
+}

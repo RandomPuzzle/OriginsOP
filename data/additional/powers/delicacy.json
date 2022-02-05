@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "rpgorigins:saddle",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "   ",
+                "#* ",
+                "   "
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:sweet_berries"
+                },
+                "*": {
+                    "item": "minecraft:glow_ink_sac"
+                }
+            },
+            "result": {
+                "item": "minecraft:glow_berries"
+            }
+    },
+    "name": "Delicacy",
+    "description": "You are able to craft glow berries using sweet berries and a glow sac."
+}

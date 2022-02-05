@@ -1,0 +1,33 @@
+{
+    "type": "origins:action_over_time",
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:height",
+                    "comparison": "<=",
+                    "compare_to": 45
+                }
+            },
+            {
+                "type": "origins:saturation_level",
+                "comparison": "<=",
+                "compare_to": 19
+            },
+            {
+                "type": "origins:exposed_to_sky",
+                "inverted": true
+            }
+        ]
+    },
+    "interval": 40,
+    "entity_action": {
+        "type": "origins:feed",
+        "food": 1,
+        "saturation": 1
+    },
+    "name": "Born of The Earth",
+    "description": "When deep underground, the warmth of the Earth gives you saturation."
+}

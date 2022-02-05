@@ -1,0 +1,19 @@
+{
+    "type": "origins:fire_projectile",
+    "entity_type": "minecraft:snowball",
+    "cooldown": 200,
+    "count": 1,
+    "speed": 2,
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    },
+    "tag": "{CustomPotionEffects:[{Id:18,Amplifier:2,Duration:75}]}",
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+        "bar_index": 4
+    },
+    "name": "Snow Ball",
+    "description": "Every 5 seconds you can give a player slowness by attacking them!"
+}

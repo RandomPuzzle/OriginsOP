@@ -1,0 +1,29 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:delay",
+			"ticks": 20,
+			"action": {
+				"type": "origins:chance",
+				"chance": 0.5,
+					"action": {
+					"type": "origins:and",
+					"actions": [{
+					"type": "origins:change_resource",
+					"resource": "time_warden:point_bar2",
+					"change": 1
+					}]
+						}
+					}
+	},
+	"cooldown": 0,
+	"key": {
+		"key": "key.pickItem",
+		"continuous": false
+	},
+	"hud_render": {
+		"should_render": false
+
+	},
+	"hidden":true
+}

@@ -1,0 +1,9 @@
+{
+    "name": "green goo",
+    "description": "You are see thru and tinted green.",
+    "type": "origins:model_color",
+    "red": 0.3,
+    "blue":0.3,
+    "green": 0.75,
+    "alpha": 0.65
+}

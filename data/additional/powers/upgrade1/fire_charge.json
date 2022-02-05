@@ -1,0 +1,15 @@
+{
+	"type": "origins:fire_projectile",
+	"entity_type": "minecraft:fireball",
+	"cooldown": 200,
+	"sound": "entity.blaze.shoot",
+	"speed": 1,
+	"divergence": 1,
+	"hud_render": {
+		"sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+		"bar_index": 3
+	},
+	"key": "secondary",
+	"name": "Improved Fireball",
+	"description": "You can now control your fire breath, allowing you to shoot a more powerful fireball"
+}

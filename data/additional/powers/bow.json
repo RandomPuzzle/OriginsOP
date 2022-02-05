@@ -1,0 +1,14 @@
+{
+  "type": "origins:prevent_item_use",
+  "item_condition": {
+    "type": "origins:and",
+    "conditions": [{
+        "type": "origins:ingredient",
+        "ingredient":{
+          "tag": "additional:rottenarms"
+        }
+    }]
+  },
+  "name": "Time-Curse",
+  "description": "Due to using your powers all the time you get weak and are unable to use bows, crossbows and shields."
+}

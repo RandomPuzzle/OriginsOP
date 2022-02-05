@@ -1,0 +1,30 @@
+{
+	"powers": [
+		"additional:energy",
+		"additional:flap",
+		"additional:particles_drac",
+		"additional:fireshot",
+		"additional:speed_drac",
+		"additional:slow_fall",
+		"additional:fire_shoot_sounds",
+		"additional:bite",
+		"additional:chomp",
+		"additional:smolman_drac",
+		"additional:fragile_frame",
+		"additional:carnivore_drac",
+		"origins:no_shield",
+		"additional:water_vulnerability_drac",
+		"additional:evolution",
+		"additional:credits"
+	],
+	"icon": "minecraft:turtle_egg",
+	"order": 10,
+	"impact": 3,
+	"name": "Young Dragon",
+	"description": "You begin as a young dragon. At this stage in your life span you are at your most energetic and agile stage. You are fast, curious and mischievous.",
+	"upgrades": {
+        "condition": "minecraft:nether/obtain_blaze_rod",
+        "origin": "upgraded:growing",
+        "announcement": "You are now beginning to grow."
+    }
+}

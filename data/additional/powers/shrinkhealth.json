@@ -1,0 +1,16 @@
+{
+    "hidden":true,
+    "name": "Splitting",
+    "description": "Every time you die you lose almost half of you size and 0.5 hearts, you can recover using slimeballs.",
+    "type": "origins:action_on_callback",
+    "entity_action_removed": {
+        "type": "origins:execute_command",
+        "command": "scale persist set true @s",
+        "permission_level": 4
+    },
+    "entity_action_respawed":{
+        "type": "origins:execute_command",
+        "command": "scale persist set true @s",
+        "permission_level":4
+    }
+}

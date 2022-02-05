@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"origins:slow_falling",
+		"origins:lay_eggs",
+		"additional:speedos"
+	],
+	"icon": "minecraft:feather",
+	"order": 0,
+	"impact": 1,
+	"loading_priority": 1,
+	"name": "Avian OP",
+	"description": "The Avian race has lost their ability to fly a long time ago. Now they have s p e e d ."
+}

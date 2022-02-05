@@ -1,0 +1,13 @@
+{
+    "name": "Flamable",
+    "description": "Your jester suit is very flamable, taking double fire damage.",
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+        "type": "origins:fire"
+    },
+    "modifier": {
+        "operation": "addition",
+        "value": 2,
+        "name": "Flamable"
+    }
+}

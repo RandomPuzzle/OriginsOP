@@ -1,0 +1,27 @@
+{
+	"powers": [
+		"additional:blue_skin",
+		"additional:snow_ball",
+		"additional:icy_hands",
+		"additional:icy_feet",
+		"additional:fire_melts_ice",
+		"additional:snow_spawn",
+		"additional:water_like",
+		"additional:fragile_ice",
+		"additional:activate_ice_feet",
+		"additional:swim_speed",
+		"additional:slip",
+		"additional:freezeno",
+		"additional:shock",
+		"additional:waterbuf",
+		"origins:more_kinetic_damage",
+		"additional:risk",
+		"additional:riske",
+		"additional:encase"
+	],
+	"icon": "minecraft:snow_block",
+	"order": 10,
+	"impact": 3,
+	"name": "Blizzborn",
+	"description": "The blazeborn's colder cousin."
+}

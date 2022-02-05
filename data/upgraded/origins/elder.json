@@ -1,0 +1,26 @@
+{
+	"powers":[
+		"additional:upgrade2/fire_charge",
+		"additional:upgrade2/elytra",
+		"additional:upgrade2/more_health",
+		"additional:upgrade2/endless",
+		"additional:upgrade2/scales",
+		"additional:upgrade2/bigman2",
+		"additional:upgrade1/bite",
+		"additional:upgrade2/fire_shoot_sounds2",
+		"additional:slow_fall",
+		"additional:chomp",
+		"additional:upgrade2/slow",
+		"additional:carnivore_drac",
+		"additional:upgrade2/particles",
+		"origins:no_shield",
+		"additional:water_vulnerability_drac",
+		"additional:credits"
+	],
+	"icon": "minecraft:ancient_debris",
+	"order": 10,
+	"impact": 3,
+	"name": "Elder Dragon",
+	"description": "You are at your final stage. You are larger, and much more powerful.",
+    "unchoosable": true
+}

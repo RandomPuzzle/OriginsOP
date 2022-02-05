@@ -1,0 +1,27 @@
+{
+	"powers": [
+	"additional:void",
+    "additional:slowtime",
+    "additional:point_bar",
+	"additional:point_bar2",
+    "additional:point_bars",
+    "additional:speedtime",
+    "additional:warp",
+    "additional:50",
+    "additional:back",
+	"additional:bow",
+    "additional:timestop",
+    "additional:particles",
+    "additional:hearts",
+	"origins:more_exhaustion",
+    "additional:sleepless",
+    "additional:day",
+    "additional:night",
+    "origins:claustrophobia"
+	],
+	"icon": "minecraft:clock",
+	"order": 10,
+	"impact": 3,
+	"name": "Time Warden",
+	"description": "You control time at your will."
+}

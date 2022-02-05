@@ -1,0 +1,23 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:delay",
+			"ticks": 9600,
+			"action": {
+				
+					"type": "origins:execute_command",
+					"command": "/execute as @s in minecraft:overworld run teleport ~ ~ ~",
+					"permission_level": 4
+					}
+	},
+	"cooldown": 0,
+	"key": {
+		"key": "key.pickItem",
+		"continuous": false
+	},
+	"hud_render": {
+		"should_render": false
+
+	},
+	"hidden": true
+}

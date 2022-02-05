@@ -1,0 +1,30 @@
+{
+	"powers": [
+		"additional:upgrade1/bigman",
+		"additional:upgrade1/fire_charge",
+		"additional:upgrade1/fire_shoot_sounds2",
+		"additional:upgrade1/flap",
+		"additional:upgrade1/scales",
+		"additional:upgrade1/bite",
+		"additional:energy",
+		"additional:particles",
+		"additional:slow_fall",
+		"additional:chomp",
+		"additional:carnivore_drac",
+		"origins:no_shield",
+		"additional:water_vulnerability_drac",
+		"additional:upgrade1/evolution",
+		"additional:credits"
+	],
+	"icon": "minecraft:redstone",
+	"order": 10,
+	"impact": 3,
+	"name": "Growing Dragon",
+	"description": "You are starting to grow. You are bigger now and have lost your high agility but are becoming more strong and powerful.",
+	"unchoosable": true,
+	 "upgrades": {
+        "condition": "minecraft:end/kill_dragon",
+        "origin": "upgraded:elder",
+        "announcement": "You have evolved. Who's the alpha dragon now?"
+    }
+}

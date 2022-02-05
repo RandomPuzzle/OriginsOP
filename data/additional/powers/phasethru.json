@@ -1,0 +1,22 @@
+{
+    "name": "Fluid",
+    "description": "You can phase thru all waterloggable blocks, becouse your body is mostly made up of water..",
+    "type": "origins:phasing",
+    "blacklist": false,
+    "render_type": "blindness",
+    "view_distance": 10,
+    "block_condition": {
+        "type": "origins:water_loggable"
+    },
+    "phase_down_condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:sneaking"
+            },
+            {
+                "type": "origins:on_block"
+            }
+        ]
+    }
+}

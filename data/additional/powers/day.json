@@ -1,0 +1,59 @@
+{
+	"type": "origins:active_self",
+	"condition": {
+		"type": "origins:and",
+		"conditions": [{
+				"type": "origins:or",
+				"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:stick"
+							}
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:stick"
+							}
+						}
+					}
+				]
+			}
+		]
+	},
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:block.respawn_anchor.charge player @s",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "time set day",
+				"permission_level": 4
+
+			}
+		]
+	},
+	"cooldown": 100,
+	"hud_render": {
+		"should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+        "bar_index": 24
+	},
+	"key": {
+		"key": "key.use",
+		"continuous": false
+	},
+	"hidden": false,
+        "name": "Light-Switcher",
+        "description": "You can change the time from night to day with a blaze rod and stick."
+}

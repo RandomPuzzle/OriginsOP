@@ -1,0 +1,21 @@
+{
+    "type": "origins:stacking_status_effect",
+    "min_stacks": 2,
+    "max_stacks": 2,
+    "duration_per_stack": 10,
+    "effects": [
+        {
+            "effect": "minecraft:slowness",
+            "is_ambient": true,
+            "show_particles": false,
+            "show_icon": false
+        }
+    ],
+	"condition": {
+    "type": "origins:fall_flying",
+	"inverted": true
+	},
+	"name": "Slow",
+	"description": "Your large size makes you slower on land."
+	
+}

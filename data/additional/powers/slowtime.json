@@ -1,0 +1,107 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "additional:point_bar",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "additional:point_bars",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @e slowness 999999 3 true",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @e mining_fatigue 999999 3 true",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "execute as @s run particle minecraft:flash ~ ~ ~ 0.6 1 0.6 0 50"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "additional:point_bar",
+					"change": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "title @s times 10 20 10",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "title @s title {\"text\":\"Time is slowing down.\",\"color\":\"gold\"}",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @e slow_falling 999999 3 true",
+					"permission_level": 4
+				}
+			]
+		},
+		"else_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "effect clear @e slowness",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "execute as @s run particle minecraft:flash ~ ~ ~ 0.6 1 0.6 0.2 100"
+				},
+				{
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "effect clear @e mining_fatigue"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.ender_eye.death player @p ~ ~ ~ 100 1",
+					"permission_level": 4
+				},
+
+				{
+					"type": "origins:change_resource",
+					"resource": "additional:point_bar",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect clear @e slow_falling",
+					"permission_level": 4
+				}
+			]
+		}
+	},
+	"cooldown": 40,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+		"bar_index": 9
+	},
+	"key": "secondary",
+	"hidden": true
+}

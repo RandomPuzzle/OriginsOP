@@ -1,0 +1,11 @@
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "particle minecraft:flame ~ ~ ~ 0.6 1.5 0.6 0 3 normal",
+		"permission_level": 4
+	},
+	"interval": "10",
+	"hidden": true
+}
+

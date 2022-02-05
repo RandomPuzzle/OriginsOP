@@ -1,0 +1,12 @@
+{
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "operation": "multiply_base",
+      "value": 2.5
+    },
+    "condition": {
+      "type": "origins:on_fire"
+    },
+    "name": "Icy!",
+    "description": "Your made out of special ices which like most ice melts! You take x2.5 Fire damage and have 2 less hearts."
+  }

@@ -1,0 +1,20 @@
+{
+	"powers": [
+       "additional:sounds",
+       "additional:stamina",
+       "additional:spytrickstab",
+       "additional:smoke_screen",
+       "additional:nimble",
+       "additional:throw_arrows",
+       "additional:multidodge",
+       "additional:force_drop",
+       "additional:pyrophobia",
+       "additional:no_shield",
+       "additional:jester_no_helmet"
+	],
+	"icon": "minecraft:emerald",
+	"order": 10,
+	"impact": 2,
+	"name": "Mystical Jester",
+	"description": "A being of pure chaos and magic. you are an ace of acrobatics, sleights of hand and disappearing acts. After all, the life of the circus is one of mystery and magic."
+}

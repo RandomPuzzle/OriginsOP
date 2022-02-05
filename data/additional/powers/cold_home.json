@@ -1,0 +1,9 @@
+{
+	"type": "origins:modify_player_spawn",
+	"dimension": "minecraft:overworld",
+	"biome": "minecraft:ice_spikes",
+	"spawn_strategy": "default",
+	
+	"name": "Cold Home",
+	"description": "You player spawn is in the Ice Spikes biome."
+}

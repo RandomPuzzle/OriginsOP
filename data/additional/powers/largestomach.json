@@ -1,0 +1,13 @@
+{
+  "type": "origins:exhaust",
+  "interval": 20,
+  "exhaustion": 1.812,
+  "condition": {
+    "type": "origins:power_active",
+    "power": "origins:phantomize"
+  
+
+  },
+  "name": "Large Stomach,",
+  "description": "You get hungry easily"
+}

@@ -1,0 +1,150 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:if_else",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+				"type": "origins:resource",
+				"resource": "additional:point_bar2",
+				"comparison": "==",
+				"compare_to": 0
+			}]
+		},
+		"if_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "/execute as @s in minecraft:the_nether run teleport ~ ~ ~",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "execute as @s run particle minecraft:flash ~ ~ ~ 0.6 1 0.6 0 50"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "title @s times 10 20 10",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "title @s title {\"text\":\"You have time warped.\",\"color\":\"red\"}",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @s slow_falling 10 2",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "additional:point_bar2",
+					"change": -1
+				}
+			]
+		},
+		"else_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [{
+					"type": "origins:resource",
+					"resource": "additional:point_bar2",
+					"comparison": "==",
+					"compare_to": -1
+				}]
+			},
+			"if_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:execute_command",
+						"permission_level": 4,
+						"command": "execute as @s run particle minecraft:flash ~ ~ ~ 0.6 1 0.6 0.2 100"
+					},
+					{
+						"type": "origins:execute_command",
+						"permission_level": 4,
+						"command": "/execute as @s in minecraft:the_end run teleport ~ ~ ~"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.ender_eye.death player @p ~ ~ ~ 100 1",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "title @s title {\"text\":\"WARP.\",\"color\":\"gold\"}",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "title @s times 10 20 10",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "effect give @s slow_falling 10 2",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "additional:point_bar2",
+						"change": 2
+					}
+				]
+			},
+			"else_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:execute_command",
+						"permission_level": 4,
+						"command": "execute as @s run particle minecraft:flash ~ ~ ~ 0.6 1 0.6 0.2 100"
+					},
+					{
+						"type": "origins:execute_command",
+						"permission_level": 4,
+						"command": "/execute as @s in minecraft:overworld run teleport ~ ~ ~"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "title @s title {\"text\":\"Welcome to the present.\",\"color\":\"green\"}",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "title @s times 10 20 10",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "effect give @s slow_falling 10 2",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "additional:point_bar2",
+						"change": -1
+					}
+				]
+			
+			}
+		}
+	},
+	"cooldown": 100,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+    	"bar_index": 7
+	},
+	"key": {
+		"key": "key.pickItem"
+	},
+	"hidden": false,
+    "name": "Time Travel",
+    "description": "Use your scrolling button on your mouse to teleport to a diffrent dimension."
+}

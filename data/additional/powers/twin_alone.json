@@ -1,0 +1,137 @@
+{
+	"name": "Never Alone",
+	"description": "You will not be able to do anything if your twin isn't online. Whenever your twin dies, you will too.",
+	
+	"type": "origins:multiple",
+	
+	"timesincedeath_scoreboard": {
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:execute_command",
+			"command": "scoreboard objectives add TimeSinceDeath minecraft.custom:minecraft.time_since_death",
+			"permission_level": 2
+		}
+	},
+	
+	"kill_both_when_one_dies": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"rising_action": {
+			"type": "origins:execute_command",
+			"command": "kill @s",
+			"permission_level": 2
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4 if score @s TimeSinceDeath matches 0",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	"alone_tag": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"rising_action": {
+			"type": "origins:execute_command",
+			"command": "tag @s add Twin_Alone",
+			"permission_level": 2
+		},
+		"falling_action": {
+			"type": "origins:execute_command",
+			"command": "tag @s remove Twin_Alone",
+			"permission_level": 2
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:command",
+					"command": "execute at @s as @a if score @p UUID_1 = @s TwinUUID_1 if score @p UUID_2 = @s TwinUUID_2 if score @p UUID_3 = @s TwinUUID_3 if score @p UUID_4 = @s TwinUUID_4",
+					"comparison": "!=",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[tag=NoTwin]",
+					"comparison": "!=",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	
+	"alone_fxs": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 1,
+		"max_stacks": 1,
+		"duration_per_stack": 35,
+		"effects": [
+			{
+				"effect": "minecraft:blindness",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": false
+			},
+			{
+				"effect": "minecraft:slowness",
+				"amplifier": 10,
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": false
+			},
+			{
+				"effect": "minecraft:resistance",
+				"amplifier": 10,
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": false
+			},
+			{
+				"effect": "minecraft:invisibility",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": false
+			},
+			{
+				"effect": "minecraft:jump_boost",
+				"amplifier": 129,
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": false
+			}
+		],
+		"condition": {
+			"type": "origins:command",
+			"command": "execute if entity @s[tag=Twin_Alone]",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	"alone_invisibility": {
+		"name": "The conditions don't work properly here, so this doesn't actually work.",
+		"type": "origins:invisibility",
+		"render_armor": false,
+		"condition": {
+			"type": "origins:command",
+			"command": "execute if entity @s[tag=Twin_Alone]",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	
+	"alone_noblockbreak": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"operation": "addition",
+			"value": -10
+		},
+		"condition": {
+			"type": "origins:command",
+			"command": "execute if entity @s[tag=Twin_Alone]",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	}
+}

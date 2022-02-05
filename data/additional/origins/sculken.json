@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"additional:sculk_rename"
+	],
+	"unchoosable": true,
+	"upgrades": [
+		{
+			"condition": "custom:root",
+			"origin": "additional:wardling"
+		}
+	]
+}

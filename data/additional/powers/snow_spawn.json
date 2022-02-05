@@ -1,0 +1,8 @@
+{
+	"type": "origins:modify_player_spawn",
+	"dimension": "minecraft:overworld",
+	"biome": "minecraft:snowy_plains",
+	"spawn_strategy": "default",
+	"name": "Birth place",
+	"description": "As you where born in the snowy regions of the world you naturally spawn in a snow biome."
+}

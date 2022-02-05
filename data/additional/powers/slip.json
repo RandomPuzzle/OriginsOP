@@ -1,0 +1,16 @@
+{
+    "type": "origins:swimming",
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:sneaking"
+            },
+            {
+                "type": "origins:on_block"
+            }
+        ]
+    },
+    "name": "Penguin",
+    "description": "Since your made of ice you slide like a penguin! hold sneak and sprint"
+}

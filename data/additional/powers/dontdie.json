@@ -1,0 +1,39 @@
+{
+    "type": "origins:multiple",
+    "nether_spawn":
+    {"type": "origins:modify_player_spawn",
+    "dimension": "minecraft:the_nether"},
+    "nobar":{
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [
+            {"type": "origins:change_resource",
+            "resource": "additional:heat",
+            "operation": "set",
+            "change": 0},
+            {"type": "origins:change_resource",
+                "resource": "additional:cold",
+                "operation": "set",
+                "change": 0},
+                { "type": "origins:execute_command",
+                    "command": "attribute @s minecraft:generic.max_health base set 20",
+                    "permission_level": 4}
+            ]
+        }
+    },
+    "health_check":{
+        "type":"origins:action_on_callback",
+        
+        "entity_action_respawned": {
+            "type": "origins:if_else_list",
+            "actions":
+            [{"action":{"type": "origins:toggle",
+            "power": "additional:fromash_health_gone_check"},
+            "condition":{"type": "origins:power_active",
+                "power": "additional:fromash_health_gone_check"}}]
+        }
+    },
+    "name": "Home habitat",
+    "description": "The nether is the phoenixs natral habitat, and shortly after escaping the lab you instinctively found your way there."
+}

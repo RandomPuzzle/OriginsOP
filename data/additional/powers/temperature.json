@@ -1,0 +1,15 @@
+{
+    "type": "origins:burn",
+    "name": "Mostly made ot of water",
+    "description": "You start evaporating in hot biomes and freezing in cold.",
+    "interval": 10,
+    "burn_duration": 3,
+    "condition": {
+        "type": "origins:biome",
+        "condition": {
+            "type": "origins:temperature",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    }
+}

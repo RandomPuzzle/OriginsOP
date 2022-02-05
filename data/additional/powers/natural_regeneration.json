@@ -1,0 +1,36 @@
+{
+	"type": "origins:self_action_when_hit",
+  "entity_action": {
+    "effects": [
+      {
+        "effect": "minecraft:regeneration",
+        "amplifier": 0,
+        "duration": 200
+      },
+      {
+        "effect": "minecraft:weakness",
+        "amplifier": 0,
+        "duration": 200
+      },
+      {
+        "effect": "minecraft:speed",
+        "amplifier": 0,
+        "duration": 200
+      }
+    ],
+    "type": "origins:apply_effect"
+  },
+	"damage_condition": 
+	{
+		"type": "origins:amount",
+		"comparison": ">=",
+		"compare_to": 3.0
+	},
+	"cooldown": 1200,
+	"hud_render": 
+	{
+		"should_render": false
+	},
+	"name": "Natural Regeneration",
+	"description": "When taking damage, the axolotl often retreats to regenerate."
+}

@@ -1,0 +1,20 @@
+{
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+	"type": "origins:chance",
+	"action": {
+    "type": "origins:execute_command",
+	"command": "function additional:break_crystal",
+	"permission_level": 4
+	},
+	"chance": 0.025
+	},
+    "damage_condition": {
+        "type": "origins:amount",
+        "comparison": ">=",
+        "compare_to": 0.5
+    },
+    "cooldown": 10,
+	"name": "Crystal Smash",
+	"description": "When taking damage, there is a chance for your crystal cluster to smash."
+}

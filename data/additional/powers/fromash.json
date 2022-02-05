@@ -1,0 +1,101 @@
+{
+    "type": "origins:multiple",
+
+    "health_gone_check": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "key": {
+            "key": "None. this isnt something you can toggle."
+        }
+    },
+    
+    "heat_check": {"type": "origins:prevent_death",
+    "condition": {
+        "type": "origins:and",
+        "conditions":
+        [{"type": "origins:resource",
+        "resource": "additional:heat",
+        "comparison": ">",
+        "compare_to": 375},
+        {
+            "type": "origins:power_active",
+            "power": "additional:fromash_health_gone_check",
+            "inverted": true
+        }]
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:heal",
+                "amount": 9
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "attribute @s minecraft:generic.max_health base set 10",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:toggle",
+                "power": "additional:fromash_health_gone_check"
+            },
+            {
+                "type": "origins:play_sound",
+                "sound": "minecraft:entity.zombie_villager.cure"
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "additional:heat",
+                "change": -375
+            }
+        ]
+    }},
+    "blaze_rod_eat": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {"type": "origins:execute_command",
+                    "command": "attribute @s minecraft:generic.max_health base set 20",
+                    "permission_level": 4},
+                    {
+                        "type": "origins:toggle",
+                        "power": "additional:fromash_health_gone_check"
+                    },
+                    {"type": "origins:play_sound",
+                        "sound": "minecraft:block.beacon.power_select"}
+            ]
+        },
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions":
+            [{"type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:blaze_rod"
+                }
+            }}, {"type": "origins:power_active",
+                "power": "additional:fromash_health_gone_check"}]
+        }
+    },
+    "name": "Rise from ash",
+    "description": "Using heat, you can fuse your ash back together. however, this leaves you in a damaged state, and you must use a blaze rod to return to a healthy state."
+}

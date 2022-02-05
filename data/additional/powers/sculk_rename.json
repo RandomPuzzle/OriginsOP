@@ -1,0 +1,9 @@
+{
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement revoke @s only custom:root",
+        "permission_level": 4
+    },
+    "interval": 5
+}

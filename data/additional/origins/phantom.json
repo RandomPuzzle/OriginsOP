@@ -1,0 +1,13 @@
+  {
+	"powers": [
+		"origins:phantomize",
+		"origins:translucent",
+		"additional:phasing",
+		"origins:fragile"
+	],
+	"icon": "minecraft:phantom_membrane",
+	"order": 2,
+	"impact": 3,
+	"name": "Phantom OP",
+	"description": "As half-human and half-phantom offspring, these creatures can switch between a Phantom and a normal form."
+}

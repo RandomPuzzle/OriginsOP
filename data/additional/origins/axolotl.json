@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"origins:water_breathing",
+		"origins:aqua_affinity",
+		"origins:swim_speed",
+		"origins:like_water",
+		"origins:aquatic",
+		"additional:water_vision",
+		"additional:hold_breath",
+		"additional:natural_regeneration",
+		"origins:conduit_power_on_land"
+	],
+	"icon": "minecraft:trident",
+	"order": 10,
+	"impact": 2,
+	"name": "Axolotl OP",
+	"description": "An evolved axolotl."
+}

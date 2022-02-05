@@ -1,0 +1,153 @@
+﻿{
+	"type": "origins:active_self",
+	"condition": {
+		"type": "origins:and",
+		"conditions": [{
+			"type": "origins:or",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:clock"
+						}
+					}
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:clock"
+						}
+					}
+				}
+			]
+		}]
+	},
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team add time"
+			},
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team join time @a"
+			},
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team join time @e[type=minecraft:guardian]"
+			},
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team join time @e[type=minecraft:creeper]"
+			},
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team join time @e[type=minecraft:wither]"
+			},
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team join time @e[type=minecraft:ghast]"
+			},
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team join time @e[type=minecraft:skeleton]"
+			},
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "team join time @e[type=minecraft:drowned]"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:item.lodestone_compass.lock player @s",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "effect give @e slowness 20 200 true",
+				"permission_level": 4
+
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "effect give @e jump_boost 20 200 true",
+				"permission_level": 4
+			}, {
+				"type": "origins:execute_command",
+				"command": "effect give @e mining_fatigue 20 200 true",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "effect give @e weakness 20 200 true",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "effect clear @s jump_boost",
+					"permission_level": 4
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "effect clear @s slowness",
+					"permission_level": 4
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "effect clear @s mining_fatigue",
+					"permission_level": 4
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 400,
+				"action": {
+					"type": "origins:execute_command",
+					"permission_level": 4,
+					"command": "team remove time"
+				}
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "title @s title {\"text\":\"Time has ℸ 𝙹!¡ℸ⍑ᒷ ⍊ᒷ∷||⎓ꖎ𝙹∴𝙹⎓ℸ╎ᒲᒷ...\",\"color\":\"dark_purple\"}",
+				"permission_level": 4
+			}
+		]
+	},
+	"cooldown": 46000,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+		"bar_index": 1
+	},
+	"key": {
+		"key": "key.use",
+		"continuous": false
+	},
+	"hidden": false,
+	"name": "Time-King",
+	"description": "Use a clock to manipulate time and stop it using it to your advantage."
+}

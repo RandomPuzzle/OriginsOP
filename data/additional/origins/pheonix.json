@@ -1,0 +1,27 @@
+{
+	"powers": [
+		"additional:nofire",
+		"additional:water",
+		"additional:coldlink",
+		"additional:heatlink",
+		"additional:heat",
+		"additional:cold",
+		"additional:afireball",
+		"additional:hippityhoppity",
+		"additional:aalaunch",
+		"additional:falling_with_style",
+		"additional:tempstats",
+		"additional:lavasee",
+		"additional:dontdie",
+		"additional:firepunch",
+		"additional:fromash",
+		"additional:player_heat_aura",
+		"additional:torch_temp_change",
+		"additional:tiny_box_tim"
+	],
+	"icon": "minecraft:fire_charge",
+	"order": 0,
+	"impact": 3,
+	"name": "Phoenix-born",
+	"description": "After the discovery of a new nether species, the phoenix, scientists saw the shocking similarities between phoenix DNA and human DNA, and decided to experiment, creating you, a part phoenix part human hybrid."
+}
