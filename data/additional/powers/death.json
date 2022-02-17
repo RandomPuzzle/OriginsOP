@@ -17,13 +17,13 @@
   ]
 	},
 	 
-	"cooldown": 2400,
+	"cooldown": 600,
 	"key": {
         "key": "key.origins.secondary_active",
         "continuous": false
 	},
 	"hud_render": {
-		"should_render": false
+		"should_render": true
 	},
 	"name": "Death",
 	"description": "Bees are known for taking others down with them. At least in Minecraft. I've just decided that."

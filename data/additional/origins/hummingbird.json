@@ -1,0 +1,22 @@
+{
+	"name": "Hummingbird",
+	"description": "As tiny nectar-harvesting birds, hummingbirds buzz away in search of sugar.",
+	"powers": [
+		"additional:buzzing_flight",
+		"additional:humtiny",
+		"additional:fast_heart",
+		"additional:sugar_preference",
+		"additional:short_life",
+		"additional:unfit_for_walking",
+		"additional:no_elytra",
+		"additional:redundant_wings_dummy",
+		"origins:light_armor",
+		"additional:chocolate_toxicity",
+		"additional:input"
+	],
+	"icon": {
+		"item": "minecraft:honey_bottle"
+	},
+	"order": 4,
+	"impact": 3
+}

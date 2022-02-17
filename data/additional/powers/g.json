@@ -1,0 +1,170 @@
+{
+    "type": "origins:multiple",
+    "name": "Calling of Trident",
+    "description": "If you created a field, you teleport to the area you create when you crouch a short time",
+    "charge": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players add @s[scores={gura_tp=..600}] gura_tp 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @s[scores={gura_tp=600..}] gura_tog 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/effect give @s[scores={gura_tp=600..}] minecraft:absorption 3 1 true"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute if entity @s[scores={gura_tp=600..}] at @e[tag=gura_totem] run tp @s ~ ~-999 ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @s[scores={gura_tp=600..}] gura_tp 599"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 2,
+                        "amplifier": 20,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:jump_boost",
+                        "duration": 2,
+                        "amplifier": -6,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @s[scores={gura_tp=1..}] at @s run particle minecraft:dust 0 0 1 1 ~ ~0.5 ~ 0.3 1 0.3 0.01 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @s[scores={gura_tp=1..}] at @s run playsound minecraft:entity.phantom.flap ambient @a ~ ~ ~ 0.2 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @s[scores={gura_tp=66..}] at @s run playsound minecraft:entity.phantom.flap ambient @a ~ ~ ~ 0.2 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @s[scores={gura_tp=132..}] at @s run playsound minecraft:entity.phantom.flap ambient @a ~ ~ ~ 0.2 2"
+                }
+            ]
+        },
+        "cooldown": 0,
+        "key": {
+            "key": "key.sneak",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "/execute as @s[scores={gura_tog=0}] if entity @e[tag=gura_totem]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "/execute unless block ~ ~-0.0001 ~ minecraft:air if entity @s",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "abilityrepeat": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players remove @s[scores={gura_tp=1..}] gura_tp 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @s[scores={gura_tp=0}] gura_tog 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/resource operation @s additional:g_cd = @s gura_tp"
+                }
+            ]
+        }
+    },
+    "cd": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 15,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "additional:g_cd",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                ]
+            }
+        }
+    },
+    "joingame": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_tp dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_tog dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @s gura_tog 0"
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives remove gura_tp"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives remove gura_tog"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    }
+}

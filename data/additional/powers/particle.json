@@ -1,12 +1,6 @@
 {
     "type": "origins:particle",
-    "particle": "minecraft:item_slime",
-    "condition": {
-        "type": "origins:block_collision",
-        "offset_x": 0,
-        "offset_y": 0,
-        "offset_z": 0},
-    "frequency": 10000,
+    "particle": "minecraft:splash",
+    "frequency": 4,
     "hidden": true
-
 }

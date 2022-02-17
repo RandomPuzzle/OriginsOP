@@ -8,10 +8,12 @@
 		"additional:flight",
 		"additional:death",
 		"additional:rain",
-		"additional:nofood"
+		"additional:nofood",
+		"additional:tiny",
+		"additional:beesit"
 	],
 	"icon": "minecraft:honeycomb",
-	"order": 7,
+	"order": 12,
 	"impact": 3,
 	"name": "Bumblebee",
 	"description":"Bees are cool. They fly and enjoy flowers and die."

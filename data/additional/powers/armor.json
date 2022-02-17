@@ -1,0 +1,40 @@
+{
+    "type": "origins:multiple",
+    "name": "Heavy Armour",
+    "description": "You dont feel comfortable if your total armour is higher than full iron armour",
+    "higharmor": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 2,
+                        "amplifier": 4,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:weakness",
+                        "duration": 2,
+                        "amplifier": 0,
+                        "show_particles": false,
+                        "show_icon": true
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "/attribute @s minecraft:generic.armor get",
+            "comparison": ">=",
+            "compare_to": 16
+        }
+    }
+}

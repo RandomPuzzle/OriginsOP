@@ -1,0 +1,45 @@
+{
+  "type": "origins:prevent_item_use",
+  "item_condition": {
+	"type": "origins:and",
+	"conditions": [
+	  {
+		"type": "origins:food"
+	  },
+	  {
+		"type": "origins:ingredient",
+		"ingredient": {
+		  "tag": "minecraft:fishes"
+		},
+		"inverted": true
+	  },
+	  {
+		"type": "origins:ingredient",
+		"ingredient": {
+		  "tag": "minecraft:fox_food"
+		},
+		"inverted": true
+	  },
+	  {
+		"type": "origins:meat",
+		"inverted": true
+	  },
+	  {
+		"type": "origins:ingredient",
+		"ingredient": {
+		  "item": "apple"
+		},
+		"inverted": true
+	  },
+	  {
+		"type": "origins:ingredient",
+		"ingredient": {
+		  "item": "honey_bottle"
+		},
+		"inverted": true
+	  }
+	]
+  },
+  "name": "Forest Food",
+  "description": "Being a forest dweller, your diet is restricted to meats, berries, and apples."
+}

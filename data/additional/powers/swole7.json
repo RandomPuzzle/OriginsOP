@@ -1,0 +1,34 @@
+{
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:execute_command",
+          "command": "scale set pehkui:width 0.51",
+          "permission_level": 4
+        },
+        {    
+          "type": "origins:execute_command",
+          "command": "scale set pehkui:height 0.46",
+          "permission_level": 4
+        }
+     ]
+    },
+	"entity_action": {
+    "type": "origins:apply_effect",
+    "effect": {
+        "effect": "minecraft:slowness",
+        "duration": 100,
+        "amplifier": 4
+    }
+},
+    "interval": 20,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "additional:eatcount",
+        "comparison": "==",
+       "compare_to": 7
+    },
+    "hidden": true
+}

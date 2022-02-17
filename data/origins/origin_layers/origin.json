@@ -1,13 +1,15 @@
 {
   "origins": [
     "additional:axolotl",
+	"additional:deerling",
+	"additional:gura",
 	"additional:wardling",
 	"additional:slimeborn",
+	"additional:riverling",
 	"additional:sculken",
 	"additional:jester",
 	"additional:blizzborn",
     "additional:enderian",
-    "additional:phantom",
     "additional:elytrian",
     "additional:turtling",
     "additional:avian",
@@ -27,6 +29,7 @@
 	"additional:penguino",
 	"upgraded:evolved_penguino",
 	"additional:young",
+	"additional:hummingbird",
 	"upgraded:growing",
 	"upgraded:elder"
   ],

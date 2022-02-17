@@ -1,0 +1,14 @@
+{
+  "type": "origins:modify_jump",
+  "modifier": {
+    "name": "Bonus jump force while sprinting",
+    "value": 0.25,
+    "operation": "multiply_base"
+  },
+  "condition": {
+    "type": "origins:sprinting"
+  },
+"name": "Agility",
+"description": "Because you can run fast you can jump slightly higher when running"
+
+}

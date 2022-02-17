@@ -1,0 +1,22 @@
+{
+  "type": "origins:modify_food",
+  "item_condition": {
+  "type": "origins:ingredient",
+  "ingredient":
+    {
+    "item": "minecraft:sweet_berries"
+    }
+  },
+  "food_modifier":
+  {
+   "operation": "addition",
+   "value": 6.0
+  },
+  "saturation_modifier":
+  {
+    "operation": "addition",
+    "value": 14
+  },
+  "name": "Eating Grass All The Time",
+  "description": "Since you've been eating grass all your live but recently stopped, berrys give you more food"
+}

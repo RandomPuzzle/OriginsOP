@@ -4,6 +4,6 @@
 	   "value": 0.8,
 	   "operation": "multiply_base"
 	   },
-	"name": "Fast metabolism",
-	"description": "A small body performing great movements requires a large amount of food!"
+	"name": "Hungy",
+	"description": "You overthink too much"
 }

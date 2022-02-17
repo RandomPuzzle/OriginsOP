@@ -1,0 +1,534 @@
+{
+    "type": "origins:multiple",
+    "name": "Trident of Atlantis",
+    "description": "You get your own tridnet, you also can craft it(trident mainhand and a heart of sea offhand).When your trident land or hit a target, it will make a field that buff gura.You cant make more than one field.You can switch between loyalty or riptide trident",
+    "passivedamage": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "/execute if entity @s[nbt={SelectedItem:{tag:{additional:1}}}]",
+                    "comparison": "==",
+                    "compare_to": 1,
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "switch": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/clear @s trident{additional:1} 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/give @s trident{Unbreakable:1,Enchantments:[{id:riptide,lvl:3},{id:impaling,lvl:5}],HideFlags:4,additional:1} 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @s gura_trident_cd 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/title @s actionbar \"Current Enchant : Riptide\""
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "/execute if entity @s[nbt={SelectedItem:{tag:{additional:1,Enchantments:[{id:\"loyalty\"}]}}},scores={gura_trident_cd=0}]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "cooldown": 0,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "switchb": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/clear @s trident{additional:1} 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/give @s trident{Unbreakable:1,Enchantments:[{id:loyalty,lvl:10},{id:impaling,lvl:5}],HideFlags:4,additional:1} 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @s gura_trident_cd 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/title @s actionbar \"Current Enchant : Loyalty\""
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "/execute if entity @s[nbt={SelectedItem:{tag:{additional:1,Enchantments:[{id:\"riptide\"}]}}},scores={gura_trident_cd=0}]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "cooldown": 0,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "totemrepeat": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute if entity @s[nbt={SelectedItem:{id:'minecraft:trident'}}] unless entity @s[nbt={SelectedItem:{tag:{additional:1}}},scores={gura_trident_cd=0}] if entity @s[nbt={Inventory:[{Slot:-106b,id:'minecraft:heart_of_the_sea'}]}] run scoreboard players add @s gura_trident_cra 3"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/clear @s[scores={gura_trident_cra=3}] minecraft:heart_of_the_sea 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/clear @s[scores={gura_trident_cra=3}] minecraft:trident 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/give @s[scores={gura_trident_cra=3}] trident{Unbreakable:1,Enchantments:[{id:loyalty,lvl:10},{id:impaling,lvl:5}],HideFlags:4,additional:1} 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players remove @s[scores={gura_trident_cra=1..}] gura_trident_cra 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players remove @s[scores={gura_trident_cd=1..}] gura_trident_cd 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players add @e[nbt={DealtDamage:1b,Trident:{tag:{additional:1}}}] gura_totem 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players add @e[tag=gura_totem] gura_trident_ar 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[scores={gura_totem=1}] unless entity @e[tag=gura_totem_x] run summon minecraft:armor_stand ~ ~1000 ~ {Invisible:1,NoGravity:1,Tags:[gura_totem_x,gura_totem],Rotation:[0f,90f]}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[scores={gura_totem=1}] unless entity @e[tag=gura_totem_y] run summon minecraft:armor_stand ~ ~1000 ~ {Invisible:1,NoGravity:1,Tags:[gura_totem_y,gura_totem],Rotation:[90f,90f]}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[scores={gura_totem=1}] unless entity @e[tag=gura_totem_xx] run summon minecraft:armor_stand ~ ~1000 ~ {Invisible:1,NoGravity:1,Tags:[gura_totem_xx,gura_totem],Rotation:[45f,90f]}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[scores={gura_totem=1}] unless entity @e[tag=gura_totem_yy] run summon minecraft:armor_stand ~ ~1000 ~ {Invisible:1,NoGravity:1,Tags:[gura_totem_yy,gura_totem],Rotation:[135f,90f]}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute at @e[scores={gura_totem=1}] unless entity @e[tag=gura_totem_z] run summon minecraft:armor_stand ~ ~1000 ~ {Invisible:1,NoGravity:1,Tags:[gura_totem_z,gura_totem]}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/kill @e[tag=gura_totem,scores={gura_trident_ar=400..}]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem] at @s positioned ~ ~-1000 ~ run particle minecraft:dripping_water ^ ^ ^10 0.2 0.2 0.2 0 10 force @a[team=gura]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem] at @s positioned ~ ~-1000 ~ run particle minecraft:dripping_water ^ ^ ^-10 0.2 0.2 0.2 0 10 force @a[team=gura]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem] at @s positioned ~ ~-1000 ~ unless entity @s[tag=gura_totem_z] run particle minecraft:dripping_water ^ ^10 ^ 0.2 0.2 0.2 0 2 force @a[team=gura]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem] at @s positioned ~ ~-1000 ~ unless entity @s[tag=gura_totem_z] run particle minecraft:dripping_water ^ ^-10 ^ 0.2 0.2 0.2 0 2 force @a[team=gura]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_z] at @s run tp @s ~ ~ ~ ~10 ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_x] store result score @s gura_totem_r run data get entity @s Rotation[1]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_y] store result score @s gura_totem_r run data get entity @s Rotation[1]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_xx] store result score @s gura_totem_r run data get entity @s Rotation[1]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_yy] store result score @s gura_totem_r run data get entity @s Rotation[1]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_x,scores={gura_totem_r=-90}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_y,scores={gura_totem_r=-90}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_xx,scores={gura_totem_r=-90}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_yy,scores={gura_totem_r=-90}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_xx,scores={gura_totem_r=90}] gura_totem_rr 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_xx,scores={gura_totem_r=-90}] gura_totem_rr 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_yy,scores={gura_totem_r=90}] gura_totem_rr 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_yy,scores={gura_totem_r=-90}] gura_totem_rr 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_xx,scores={gura_totem_rr=0}] at @s run tp @s ~ ~ ~ ~ ~-10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_xx,scores={gura_totem_rr=1}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_yy,scores={gura_totem_rr=0}] at @s run tp @s ~ ~ ~ ~ ~-10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_yy,scores={gura_totem_rr=1}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_x,scores={gura_totem_r=90}] gura_totem_rr 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_x,scores={gura_totem_r=-90}] gura_totem_rr 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_y,scores={gura_totem_r=90}] gura_totem_rr 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @e[tag=gura_totem_y,scores={gura_totem_r=-90}] gura_totem_rr 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_x,scores={gura_totem_rr=0}] at @s run tp @s ~ ~ ~ ~ ~-10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_x,scores={gura_totem_rr=1}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_y,scores={gura_totem_rr=0}] at @s run tp @s ~ ~ ~ ~ ~-10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[tag=gura_totem_y,scores={gura_totem_rr=1}] at @s run tp @s ~ ~ ~ ~ ~10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @s at @s positioned ~ ~1000 ~ if entity @e[tag=gura_totem,distance=..10] run resource set @s additional:trident_intotem 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @s at @s positioned ~ ~1000 ~ if entity @e[tag=gura_totem,distance=..10] run playsound minecraft:entity.player.swim ambient @a ~ ~-1000 ~ 0.05 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @s at @s positioned ~ ~1000 ~ unless entity @e[tag=gura_totem,distance=..10] run resource set @s additional:trident_intotem 0"
+                }
+            ]
+        }
+    },
+    "effectrepeat": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:dolphins_grace",
+                        "duration": 12,
+                        "amplifier": 1,
+                        "show_particles": false,
+                        "show_icon": true
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:regeneration",
+                        "duration": 12,
+                        "amplifier": 2,
+                        "show_particles": false,
+                        "show_icon": true
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:resistance",
+                        "duration": 12,
+                        "amplifier": 1,
+                        "show_particles": false,
+                        "show_icon": true
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slow_falling",
+                        "duration": 12,
+                        "amplifier": 0,
+                        "show_icon": false,
+                        "show_particles": false
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:trident_intotem",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "intotemeffect": {
+        "type": "origins:swimming",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:trident_intotem",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "passiveattackspeed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "multiply_total",
+            "value": 0.34,
+            "name": "speed"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:trident_intotem",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "intotemfloat": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:levitation",
+                        "duration": 5,
+                        "amplifier": -1,
+                        "show_icon": false,
+                        "show_particles": false
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "additional:trident_intotem",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "cooldown": 0,
+        "key": {
+            "key": "key.jump",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "bow": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:bow"
+            }
+        }
+    },
+    "crossbow": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:crossbow"
+            }
+        }
+    },
+    "intotem": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "joingame": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/clear @s trident 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/give @s trident{Unbreakable:1,Enchantments:[{id:loyalty,lvl:10},{id:impaling,lvl:5}],HideFlags:4,additional:1} 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_totem dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_totem_r dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_totem_rr dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_trident_cd dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_trident_cra dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives add gura_trident_ar dummy"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard players set @s gura_trident_cd 0"
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/clear @s trident{additional:1}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives remove gura_totem"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives remove gura_totem_r"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives remove gura_totem_rr"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives remove gura_trident_ar"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/scoreboard objectives remove gura_trident_cd"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    }
+}

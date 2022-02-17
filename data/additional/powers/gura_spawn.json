@@ -1,0 +1,68 @@
+{
+    "type": "origins:multiple",
+    "name": "From Atlantis",
+    "description": "You spawn at the monument, able to breath under water, all sea creatures wont attack you(except pufferfish, they just dont like everyone) and only can use trident as weapon.",
+    "spawn": {
+        "type": "origins:modify_player_spawn",
+        "dimension": "minecraft:overworld",
+        "structure": "monument",
+        "spawn_strategy": "center"
+    },
+    "abilityrepeat": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute if entity @e[team=gura] as @e[team=!gura] if data entity @s Inventory[].tag.gura run effect give @s wither 1 10 true"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/effect clear @s[nbt={ActiveEffects:[{Id:4b,Duration:5990}]}] minecraft:mining_fatigue"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/team join gura @e[type=#additional:underwater]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/team join gura @s"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:water_breathing",
+                        "duration": 2,
+                        "amplifier": 0,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                }
+            ]
+        }
+    },
+    "joingame": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/team add gura"
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/team remove gura"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    }
+}

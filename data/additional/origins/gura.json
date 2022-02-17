@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"additional:gura_spawn",
+		"additional:trident",
+		"additional:g",
+		"additional:armor",
+		"additional:river_water_vision",
+		"origins:aqua_affinity",
+		"origins:like_water"
+	],
+	"icon": "minecraft:trident",
+	"order": 0,
+	"impact": 3,
+	"name":"Sharkie",
+	"description":"Descendants of Gawr Gura herself, the magical shark-human race have grown bored and now wander the vast lands."
+}

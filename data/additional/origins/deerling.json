@@ -1,0 +1,22 @@
+{
+	"powers": [
+		"additional:forest_native",
+		"additional:jump_bonus",
+		"additional:agility",
+		"additional:eat_berry",
+		"additional:hide",
+		"additional:nighttime",
+		"additional:forest_food",
+		"additional:sensitive_awareness",
+		"additional:oh_deer_god",
+		"additional:forest_gump",
+		"additional:oh_deer_god_drawback",
+		"additional:hungy"
+		
+	],
+	"icon": "minecraft:dirt",
+	"order": 10,
+	"impact": 2,
+	"name": "Deerling",
+	"description": "A forest dweller one of the friendliest yet scaredest of the bunch being able to jump and run fast in there home environment"
+}
